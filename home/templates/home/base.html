@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    {% block extra_head %}
+    {% endblock %}
+</head>
+
+<body class="bg-white text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="border-b bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <a href="{% url 'home' %}"
+               class="text-xl font-bold">
+                My Portfolio
+            </a>
+
+            <div class="flex gap-6 text-sm">
+                <a href="{% url 'home' %}"
+                   class="text-gray-600 hover:text-blue-600">
+                    Home
+                </a>
+
+                <a href="{% url 'project_list' %}"
+                   class="text-gray-600 hover:text-blue-600">
+                    Projects
+                </a>
+
+                <a href="{% url 'about' %}"
+                   class="text-gray-600 hover:text-blue-600">
+                    About
+                </a>
+
+                <a href="{% url 'contact' %}"
+                   class="text-gray-600 hover:text-blue-600">
+                    Contact
+                </a>
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-6 py-10">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="border-t mt-16">
+        <div class="max-w-6xl mx-auto px-6 py-8 text-center text-sm text-gray-500">
+            <p>
+                © {% now "Y" %} My Portfolio. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+
+    {% block extra_scripts %}
+    {% endblock %}
+
+</body>
+</html>

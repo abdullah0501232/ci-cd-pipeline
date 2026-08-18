@@ -1,0 +1,14 @@
+{% for project in projects %}
+<a href="{% url 'project_detail' project.slug %}" class="border rounded-lg overflow-hidden hover:shadow-md transition block">
+    {% if project.image %}
+    <img src="{{ project.image.url }}" alt="{{ project.title }}" class="w-full h-40 object-cover">
+    {% endif %}
+    <div class="p-4">
+        <h3 class="font-semibold">{{ project.title }}</h3>
+        <p class="text-sm text-gray-500 mt-2">{{ project.description|truncatewords:15 }}</p>
+        <p class="text-xs text-blue-600 mt-3">{{ project.tech_stack }}</p>
+    </div>
+</a>
+{% empty %}
+<p class="text-gray-400">No projects yet.</p>
+{% endfor %}

@@ -1,0 +1,11 @@
+{% extends 'home/base.html' %}
+{% block content %}
+<a href="{% url 'project_list' %}" class="text-sm text-blue-600">&larr; Back to Projects</a>
+<h1 class="text-3xl font-bold mt-4 mb-4">{{ project.title }}</h1>
+<p class="text-gray-600 mb-4">{{ project.description }}</p>
+<p class="text-sm text-gray-500 mb-4">Tech: {{ project.tech_stack }}</p>
+<div class="space-x-4">
+    {% if project.github_link %}<a href="{{ project.github_link }}" class="text-blue-600 underline" target="_blank">GitHub</a>{% endif %}
+    {% if project.live_link %}<a href="{{ project.live_link }}" class="text-blue-600 underline" target="_blank">Live Demo</a>{% endif %}
+</div>
+{% endblock %}

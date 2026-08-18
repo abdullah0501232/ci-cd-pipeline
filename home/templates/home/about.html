@@ -1,0 +1,22 @@
+{% extends 'home/base.html' %}
+{% block content %}
+<h1 class="text-3xl font-bold mb-8">About Me</h1>
+<p class="text-gray-600 mb-8">Write a short bio here.</p>
+
+<h2 class="text-xl font-semibold mb-4">Skills</h2>
+<div class="grid md:grid-cols-2 gap-4">
+    {% for skill in skills %}
+    <div>
+        <div class="flex justify-between text-sm mb-1">
+            <span>{{ skill.name }}</span>
+            <span>{{ skill.proficiency }}%</span>
+        </div>
+        <div class="w-full bg-gray-200 rounded-full h-2">
+            <div class="bg-blue-600 h-2 rounded-full" style="width: {{ skill.proficiency }}%"></div>
+        </div>
+    </div>
+    {% empty %}
+    <p class="text-gray-400">No skills added yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
