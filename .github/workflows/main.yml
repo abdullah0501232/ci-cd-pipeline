@@ -55,7 +55,6 @@ jobs:
     name: Build and Push Docker Image
     needs: build-and-test
     runs-on: ubuntu-latest
-
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     steps:
